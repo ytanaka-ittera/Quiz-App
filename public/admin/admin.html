@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Admin</title>
+    <link rel="stylesheet" type="text/css" href="admin.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="admin.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="header-center">
+            <h2>管理者画面</h2>
+        </div>
+        <div class="header-right">
+            <button onclick="location.href='/ranking/'">ランキング画面へ</button>
+        </div>
+    </header>
+    <div class="container">
+        <div class="question-list">
+            <h3 style="margin-top: 0;">Questions</h3>
+            <table id="question">
+                <thead>
+                    <tr id="th-question">
+                        <th style="width: 20px;" rowspan="2"></th>
+                        <th style="width: 20px;" rowspan="2">No</th>
+                        <th colspan="5">問題文</th>
+                    </tr>
+                    <tr id="th-option">
+                        <th>A</th>
+                        <th>B</th>
+                        <th>C</th>
+                        <th>D</th>
+                        <th style="color: #ff0000;">正解</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- DBから問題一覧取得 -->
+                </tbody>
+            </table>
+        </div>
+        <div class="user-answer-list">
+            <h3 style="margin-top: 0;">Answers</h3>
+            <table id="answers">
+                <thead>
+                    <tr>
+                        <th style="width: 20px;">No</th>
+                        <th>チーム名</th>
+                        <th>回答時間</th>
+                        <th style="width: 60px;">回答</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- ユーザーの回答を表示 -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <footer>
+        <button onclick="sendQuestion()">問題文表示</button>
+        <button onclick="sendOption()">選択肢表示</button>
+        <button onclick="sendUser()">ユーザー画面に表示</button>
+        <button onclick="sendAnswer()">解答表示</button>
+        <button onclick="sendInit()">画面初期化</button>
+        <button onclick="sendScreenON()">スクリーン注目</button>
+        <button onclick="sendScreenOFF()">スクリーン注目解除</button>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - User</title>
+    <link rel="stylesheet" type="text/css" href="user.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <span id="username-display"></span>
+        </div>
+        <div class="header-right">
+            <button id="logout">ログアウト</button>
+        </div>
+        <script>
+            // ページ読み込み時にユーザー名を取得
+            async function fetchUsername() {
+                const response = await fetch('/getUser');
+                const data = await response.json();
+
+                if (data.success) {
+                    // ユーザー名を表示
+                    const usernameDisplay = document.getElementById('username-display');
+                    usernameDisplay.innerText = `チーム：${data.username}`;
+                } else {
+                    // ユーザーが未ログインの場合、ログイン画面にリダイレクト
+                    window.location.href = '../';
+                }
+            }
+
+            // ログアウト処理
+            document.getElementById('logout').addEventListener('click', async () => {
+                await fetch('/logout', { method: 'POST' });
+                window.location.href = '../'; // ログイン画面へリダイレクト
+            });
+
+            // 初期化
+            fetchUsername();
+        </script>
+    </header>
+    <div class="content">
+        <input type="hidden" id="hdnQuestionID" value="">
+        <input type="hidden" id="hdnCorrectOption" value="">
+        <div id="question-display" style="display: none;">
+            <span id="question"></span>
+        </div>
+        <div id="options-display" style="display: none;">
+            <div class="button-row">
+                <button class="option-button" id="option-1" value="1"
+                    onclick="sendSelectAnswer(this.value)">選択肢A</button>
+                <button class="option-button" id="option-2" value="2"
+                    onclick="sendSelectAnswer(this.value)">選択肢B</button>
+            </div>
+            <div class="button-row">
+                <button class="option-button" id="option-3" value="3"
+                    onclick="sendSelectAnswer(this.value)">選択肢C</button>
+                <button class="option-button" id="option-4" value="4"
+                    onclick="sendSelectAnswer(this.value)">選択肢D</button>
+            </div>
+        </div>
+        <div id="countdown" style="display: none; font-size: 20px; color: #ff0000; text-align: center;"></div>
+        <div id="answer-display" style="display: none;">
+            <p class="answer-left">正解は…</p>
+            <h4 id="answer"></h4>
+            <p class="answer-right">でした！</p>
+        </div>
+    </div>
+    <footer>
+        クイズアプリ(プロトタイプ)
+    </footer>
+    <div id="modal" class="modal">
+        <div id="modal-content" class="modal-content"></div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="user.js"></script>
+</body>
+
+</html>

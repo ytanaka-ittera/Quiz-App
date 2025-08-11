@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #login-form {
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #login-form input {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        #login-form button {
+            width: 100%;
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="login-form">
+        <h2>ログイン</h2>
+        <input type="text" id="username" placeholder="ユーザー名" required />
+        <button onclick="login()">ログイン</button>
+        <p id="error-message" style="color: #ff0000; display: none;"></p>
+    </div>
+
+    <script>
+        async function login() {
+            const username = document.getElementById("username").value;
+            const errorMessage = document.getElementById("error-message");
+
+            const response = await fetch("/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ username }),
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                // ログイン成功時、ユーザー画面に遷移
+                window.location.href = "../user/user.html"; // ユーザー画面へのURL
+            } else {
+                // エラーメッセージを表示
+                errorMessage.style.display = "block";
+                errorMessage.innerText = data.message;
+            }
+        }
+    </script>
+</body>
+
+</html>

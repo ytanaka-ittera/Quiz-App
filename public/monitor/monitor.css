@@ -1,0 +1,166 @@
+body {
+    background-color: #fff0f5;
+    margin: 0;
+}
+
+.content {
+    padding: 20px;
+}
+
+#question-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+#options-display {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.button-row button {
+    width: 100%;
+    height: 200px;
+    font-size: 2rem;
+    font-weight: bold;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    padding: 5px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+#option-1 {
+    background-color: #90ee90;
+    margin-right: 5px;
+}
+
+#option-2 {
+    background-color: #f08080;
+    margin-left: 5px;
+}
+
+#option-3 {
+    background-color: #87cefa;
+    margin-right: 5px;
+}
+
+#option-4 {
+    background-color: #ffff00;
+    margin-left: 5px;
+}
+
+.option-button.selected {
+    background-color: #ffcc00;
+    color: #000;
+    font-weight: bold;
+    border: 2px solid #ffa500;
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.8);
+    cursor: default;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+#ranking-display {
+    margin: auto;
+    text-align: center;
+    width: 70%;
+    font-size: 1.2em;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+}
+
+th,
+td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+th {
+    background-color: #b0e0e6;
+}
+
+#rank-1 td {
+    height: 120px;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ff0000;
+}
+
+#rank-2 td {
+    height: 100px;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+#rank-3 td {
+    height: 80px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#rank-4 td {
+    height: 40px;
+}
+
+#rank-5 td {
+    height: 40px;
+}
+
+/* フェードインアニメーション */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

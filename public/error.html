@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #error-form {
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #error-form button {
+            width: 100%;
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="error-form">
+        <p>ログインに失敗しました。</p>
+        <p>再度ログインしてください。</p>
+        <button id="error-button">ログインページへ</button>
+        <script>
+            document.getElementById('error-button').addEventListener('click', async () => {
+                window.location.href = '../'; // ログイン画面へリダイレクト
+            });
+        </script>
+    </div>
+</body>
+
+</html>

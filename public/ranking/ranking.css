@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #d3d3d3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    line-height: 50px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.header-center {
+    flex: 8;
+    text-align: center;
+}
+
+.header-right {
+    flex: 2;
+    text-align: right;
+}
+
+header h2 {
+    margin: 0;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #f8f8f8;
+    border-top: 1px solid #d3d3d3;
+    text-align: center;
+    line-height: 50px;
+    z-index: 1000;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+}
+
+.ranking-list {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.ranking-list table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.ranking-list th,
+.ranking-list td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.ranking-list th {
+    text-align: center;
+    background-color: #f2f2f2;
+}
+
+.highlight {
+    background-color: #fffae6;
+}
+
+.radio-cell {
+    cursor: pointer;
+    text-align: center;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s;
+}
+
+.radio-cell:hover {
+    background-color: #e0f7fa;
+}
